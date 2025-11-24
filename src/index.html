@@ -9,6 +9,30 @@
 </head>
 <body>
     <div class="container">
+        <button class="open" type="button">open modal</button>
+        <div class="backdrop">
+            <div class="modal">
+                <h2 class="modal-title">Введіть данні</h2>
+                <form class="modal-form">
+                    <label>Назва морозива
+                        <input type="text" name="name">
+                    </label>
+                    <label>тип морозива
+                        <input type="text" name="type">
+                    </label>
+                    <label>калорійність морозива
+                        <input type="text" name="calories">
+                    </label>
+                    <label>ціна морозива
+                        <input type="text" name="price">
+                    </label>
+                    <label>опис морозива
+                        <input type="text" name="description">
+                    </label>
+                    <button class="modal-submit" type="submit">Відправити</button>
+                </form>
+            </div>
+        </div>
     <ul class="js-list"></ul>
     </div>
     <script type="module" src="./app.js"></script>
