@@ -716,15 +716,31 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"2R06K":[function(require,module,exports,__globalThis) {
 var _getIceApi = require("./api/getIceApi");
 var _createIceMarkup = require("./createMarkup/createIceMarkup");
+var _openModal = require("./createMarkup/openModal");
+(0, _openModal.openModal)();
 const listRef = document.querySelector(".js-list");
+const formRef = document.querySelector(".modal-form");
+formRef.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const { name, type, calories, price, description } = e.currentTarget.elements;
+    const data = {
+        name: name.value.trim(),
+        type: type.value.trim(),
+        calories: calories.value.trim(),
+        price: price.value.trim(),
+        description: description.value.trim()
+    };
+    formRef.reset();
+    console.log(data);
+});
 (0, _getIceApi.getIceApi)().then((res)=>listRef.innerHTML = (0, _createIceMarkup.createItemsMarkup)(res));
 
-},{"./api/getIceApi":"7TWCi","./createMarkup/createIceMarkup":"jfLrU"}],"7TWCi":[function(require,module,exports,__globalThis) {
+},{"./api/getIceApi":"7TWCi","./createMarkup/createIceMarkup":"jfLrU","./createMarkup/openModal":"byhRH"}],"7TWCi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getIceApi", ()=>getIceApi);
 const getIceApi = ()=>{
-    return fetch("http://localhost:3000/iceCreams").then((res)=>res.json());
+    return fetch("http://localhost:3001/iceCreams").then((res)=>res.json());
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
@@ -773,6 +789,19 @@ const createItemsMarkup = (array)=>{
 </li>`;
     }).join("");
     return item;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"byhRH":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "openModal", ()=>openModal);
+const openModalBtn = document.querySelector(".open");
+const backdrop = document.querySelector(".backdrop");
+const openModal = ()=>{
+    openModalBtn.addEventListener("click", ()=>{
+        backdrop.style.opacity = "1";
+        backdrop.style.pointerEvents = "auto";
+    });
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["7wZbQ","2R06K"], "2R06K", "parcelRequirea17c", {})

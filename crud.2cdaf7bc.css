@@ -29,4 +29,75 @@ img {
   width: 100%;
   height: 300px;
 }
+
+.open {
+  color: red;
+  background-color: #0ff;
+  border: none;
+  border-radius: 5px;
+  margin: 50px auto;
+  padding: 10px 20px;
+  font-size: 30px;
+  display: block;
+}
+
+.backdrop {
+  opacity: 0;
+  pointer-events: none;
+  background-color: #00000062;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  background-color: #faebd7;
+  flex-direction: column;
+  gap: 30px;
+  width: 500px;
+  padding: 40px;
+  display: flex;
+}
+
+.modal-title {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+label {
+  color: #8a2be2;
+  font-size: 20px;
+  display: block;
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  display: block;
+}
+
+.modal-submit {
+  color: #fff;
+  background-color: #00f;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  margin: 30px auto 0;
+}
 /*# sourceMappingURL=crud.2cdaf7bc.css.map */
